@@ -1,0 +1,21 @@
+import canonicalLaneMathlib.AdmissibleClass
+import DifferentialTopologicalAspectsDiffeomorphismsFoundationCanonicalLaneLean.DifferentialTopologicalObjects
+import DifferentialTopologicalAspectsDiffeomorphismsFoundationCanonicalLaneLean.ClassificationPackage
+import DifferentialTopologicalAspectsDiffeomorphismsFoundationCanonicalLaneLean.InvariancePrinciples
+import DifferentialTopologicalAspectsDiffeomorphismsFoundationCanonicalLaneLean.DualityPackage
+
+namespace HautevilleHouse
+namespace DifferentialTopologicalAspectsDiffeomorphismsFoundationCanonicalLaneLean
+
+structure DiffeomorphismFoundationEvidenceTerms where
+  classificationEvidence : ClassificationEvidence (ClassificationPackage.mk ∅ [] True True)
+  invarianceEvidence : InvariancePrinciplePackage
+  dualityEvidence : DualityPackage
+  fundamentalEvidence : DiffeoAdmittedObject
+
+theorem evidence_terms_imply_endgame (E : DiffeomorphismFoundationEvidenceTerms) :
+    ConstrainedDiffeomorphismClosure E.fundamentalEvidence := by
+  exact constrained_diffeomorphism_endgame E.fundamentalEvidence
+
+end DifferentialTopologicalAspectsDiffeomorphismsFoundationCanonicalLaneLean
+end HautevilleHouse
